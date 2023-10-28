@@ -1,0 +1,3 @@
+class NetworkImages{
+  static String dog = 'https://s3-alpha-sig.figma.com/img/e10d/563c/5c1442309bff8647f1c82eeb6612ba71?Expires=1699228800&Signature=kR5RHxJbkoCcQb5ccClh9SPCMuyvrHf~pJ0leLvq36LMvtdSP7cEGtunFV9Y7tr~NP4NNMhKytLgbS1HCddcXPV5vWf3SokZ-P4afVDPtzVCGWtYTWjYGJCiChdLGk~Pprp8hMmF5VA4oqp3rgHtY~4NuH7EbRQ~ypfMqONbDhc1X-zVlY6i3UlFj613SE50-zPE7mIGCWdOkN~65XZIgS85GbtR68lWSH8V3tEAflbPa82mNFWAAUg7pra83WBxoc~GF3F4JhF329v1EEZ1HMwIAN2MV~mesCwX4OTd5o0iG3Qr2xmegtlLZfe0lybnRs-WAVXaHCbZBup9IVkuyA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
+}
