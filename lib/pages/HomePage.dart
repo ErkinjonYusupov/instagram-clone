@@ -8,10 +8,30 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List images = [NetworkImages.dog, NetworkImages.dog2, NetworkImages.dog3];
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("Bosh sahifa"),),
+    return Scaffold(
+      body: Column(
+        children: [
+          Row(
+            children: [
+              SizedBox(
+                width: 100,
+                height: 50,
+                child: Stack(
+                  children: List.generate(images.length, (index) {
+                    return Positioned(
+                        left: index * 25,
+                        child: CircleNetworkImage(image: images[index]));
+                  }),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
