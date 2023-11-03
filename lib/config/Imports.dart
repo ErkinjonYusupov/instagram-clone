@@ -7,6 +7,18 @@ export 'package:cached_network_image/cached_network_image.dart';
 export 'package:intagram_clone_ui/config/img_url.dart';
 export 'package:intagram_clone_ui/base/CiricleNetworkImahe.dart';
 export 'package:intagram_clone_ui/stores/main_controller.dart';
+export 'package:intagram_clone_ui/components/home/HomeHeader.dart';
+export 'package:intagram_clone_ui/components/home/HomeAddStories.dart';
+export 'package:intagram_clone_ui/stores/home_controller.dart';
+export 'package:intagram_clone_ui/components/home/HomeStoriesItem.dart';
+export 'package:intagram_clone_ui/components/home/HomeStoriesList.dart';
+export 'package:intagram_clone_ui/config/Colors.dart';
+export 'package:intagram_clone_ui/utils/Helpers.dart';
+
+
+
+
+
 
 
 

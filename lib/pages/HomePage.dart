@@ -8,30 +8,35 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List images = [NetworkImages.dog, NetworkImages.dog2, NetworkImages.dog3];
-
+  HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Row(
-            children: [
-              SizedBox(
-                width: 100,
-                height: 50,
-                child: Stack(
-                  children: List.generate(images.length, (index) {
-                    return Positioned(
-                        left: index * 25,
-                        child: CircleNetworkImage(image: images[index]));
-                  }),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const HomeHeader(),
+            Padding(
+              padding: const EdgeInsets.only(left: 8, top: 8, right: 8),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const HomeAddStories(),
+                    const SizedBox(width: 12),
+                    HomeStoriesList(homeController: homeController)
+                  ],
                 ),
               ),
-            ],
-          )
-        ],
+            ),
+            const Divider(thickness: 2,),
+            
+          ],
+        ),
       ),
     );
   }
 }
+
+
