@@ -18,7 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 
 flutter build qilish uchun qilinadigan ishlar
 1. oldin keystore yaratib olamiz Misol uchun
-  keytool -genkey -v -keystore /Users/yusupoverkinjon/Desktop/Flutter/KeyStores/epa-usta-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+  keytool -genkey -v -keystore /Users/yusupoverkinjon/Desktop/Flutter/KeyStores/keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
 2. android papka ichida /android/key.properties faylini yaratib olamiz va ichiga shu holatda yozamiz
 storePassword=1234567
 keyPassword=1234567

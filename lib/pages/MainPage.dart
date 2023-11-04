@@ -1,7 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:intagram_clone_ui/config/Imports.dart';
-import 'package:intagram_clone_ui/config/img_url.dart';
-import 'package:intagram_clone_ui/stores/main_controller.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -35,22 +32,8 @@ class _MainPageState extends State<MainPage> {
                       onTap: () {
                         mainController.chooseCurrent(5);
                       },
-                      child: CachedNetworkImage(
-                          imageUrl: NetworkImages.dog,
-                          imageBuilder: (context, imageProvider) => Container(
-                            width: 40.0,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: imageProvider, fit: BoxFit.cover),
-                            ),
-                          ),
-                          placeholder: (context, url) =>
-                              const CircularProgressIndicator(),
-                          errorWidget: (context, url, error) =>
-                              const Icon(Icons.error),
-                        ),
+                      child: 
+                      CircleNetworkImage(image: NetworkImages.dog,),
                     );
               }),
             ),
@@ -61,3 +44,5 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+
