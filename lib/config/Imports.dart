@@ -14,6 +14,10 @@ export 'package:intagram_clone_ui/components/home/HomeStoriesItem.dart';
 export 'package:intagram_clone_ui/components/home/HomeStoriesList.dart';
 export 'package:intagram_clone_ui/config/Colors.dart';
 export 'package:intagram_clone_ui/utils/Helpers.dart';
+export 'package:intagram_clone_ui/components/base/ProfileImage.dart';
+export 'package:intagram_clone_ui/components/home/Post.dart';
+
+
 
 
 

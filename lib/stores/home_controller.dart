@@ -10,16 +10,36 @@ class HomeController extends GetxController {
     {"img": NetworkImages.woman, "name": "test"},
     {"img": NetworkImages.dog, "name": "sabanok"},
   ];
-  List post = [
+  List posts = [
     {
       "profile_img": NetworkImages.woman,
       "post_img": NetworkImages.dog,
       "name": "Ruffles",
-      "likes_count": 100,
+      "likes_count": 33,
       "username": "Username",
       "description":
           "Bir narsalar kjsjfakj akjfkjafjaskjf jkfjajsdfjdsakj jkjfkjdas",
-          "coments_count":16
+          "coments_count":12
+    },
+    {
+      "profile_img": NetworkImages.dog3,
+      "post_img": NetworkImages.dog2,
+      "name": "Ruffles name",
+      "likes_count": 45,
+      "username": "Username",
+      "description":
+          "Bir narsalar kjsjfakj akjfkjafjaskjf jkfjajsdfjdsakj jkjfkjdas",
+          "coments_count":3
+    },
+    {
+      "profile_img": NetworkImages.man,
+      "post_img": NetworkImages.nature,
+      "name": "Name Ruffles",
+      "likes_count": 12,
+      "username": "Username",
+      "description":
+          "Bir narsalar kjsjfakj akjfkjafjaskjf jkfjajsdfjdsakj jkjfkjdas",
+          "coments_count":78
     }
   ];
 }
