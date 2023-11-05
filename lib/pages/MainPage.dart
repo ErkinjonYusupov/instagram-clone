@@ -32,8 +32,7 @@ class _MainPageState extends State<MainPage> {
                       onTap: () {
                         mainController.chooseCurrent(5);
                       },
-                      child: 
-                      CircleNetworkImage(image: NetworkImages.dog,),
+                      child: ProfileImage(img: NetworkImages.dog,radius: 15,),
                     );
               }),
             ),

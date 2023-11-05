@@ -22,8 +22,8 @@ class HomeController extends GetxController {
           "coments_count":12
     },
     {
-      "profile_img": NetworkImages.dog3,
-      "post_img": NetworkImages.dog2,
+      "profile_img": NetworkImages.dog2,
+      "post_img": NetworkImages.dog3,
       "name": "Ruffles name",
       "likes_count": 45,
       "username": "Username",
