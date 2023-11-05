@@ -1,4 +1,5 @@
 import 'package:intagram_clone_ui/config/Imports.dart';
+import 'package:intagram_clone_ui/pages/UserProfile.dart';
 
 class Post extends StatelessWidget {
   var post;
@@ -19,9 +20,14 @@ class Post extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
             child: Row(
               children: [
-                ProfileImage(
-                  img: post['profile_img'],
-                  radius: 20,
+                InkWell(
+                  onTap: () {
+                    Get.to(()=>const UserProfile());
+                  },
+                  child: ProfileImage(
+                    img: post['profile_img'],
+                    radius: 20,
+                  ),
                 ),
                 const SizedBox(
                   width: 8,
