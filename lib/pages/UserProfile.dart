@@ -7,173 +7,106 @@ class UserProfile extends StatefulWidget {
   State<UserProfile> createState() => _UserProfileState();
 }
 
-class _UserProfileState extends State<UserProfile> {
+class _UserProfileState extends State<UserProfile>
+    with SingleTickerProviderStateMixin {
   List imagas = [NetworkImages.dog, NetworkImages.man, NetworkImages.woman];
+  UserProfileController controller = Get.put(UserProfileController());
+  late TabController tabController;
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 3, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: const Icon(Icons.arrow_back_ios_new)),
-          title: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text("username"),
-              const SizedBox(width: 4),
-              SvgPicture.asset(AppIcons.official)
-            ],
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: SvgPicture.asset(AppIcons.ball)),
-            IconButton(onPressed: () {}, icon: SvgPicture.asset(AppIcons.more)),
-          ],
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Row(
+    return GetBuilder<UserProfileController>(
+      builder: (controller) {
+        return SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              leading: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: const Icon(Icons.arrow_back_ios_new)),
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ProfileImage(img: NetworkImages.dog, radius: 35),
-                  const SizedBox(width: 60),
-                  Row(
-                    children: [
-                      Statics(text: "Posts", count: "1,234"),
-                      const SizedBox(width: 24),
-                      Statics(text: "Followers", count: "5,234"),
-                      const SizedBox(width: 24),
-                      Statics(text: "Following", count: "2,234"),
-                    ],
+                  const Text("username"),
+                  const SizedBox(width: 4),
+                  SvgPicture.asset(AppIcons.official)
+                ],
+              ),
+              actions: [
+                IconButton(
+                    onPressed: () {}, icon: SvgPicture.asset(AppIcons.ball)),
+                IconButton(
+                    onPressed: () {}, icon: SvgPicture.asset(AppIcons.more)),
+              ],
+            ),
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const UserProfileHeader(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const UserProfileInfo(),
+                        const SizedBox(height: 12),
+                        UserProfileFollowers(imagas: imagas),
+                        const SizedBox(height: 12),
+                        const UserProfileActions(),
+                        const SizedBox(height: 10),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                              children: List.generate(
+                                  controller.fovorites.length, (index) {
+                            var item = controller.fovorites[index];
+                            return UserProfileFovorite(
+                                img: item['img'], text: item['name']);
+                          })),
+                        ),
+                        TabBar(
+                          controller: tabController,
+                          isScrollable: true,
+                          tabs: const [
+                            Tab(
+                              text: 'EMAIL ADDRESS',
+                            ),
+                            Tab(
+                              text: 'PHONE NUMBER',
+                            ),
+                            Tab(
+                              text: 'PHONE NUMBER',
+                            ),
+                          ],
+                          labelColor: Colors.black,
+                        ),
+                        SizedBox(
+                          width: double.maxFinite,
+                          height: 300,
+                          child:
+                              TabBarView(controller: tabController, children: [
+                            Text("data1"),
+                            Text("data2"),
+                            Text("data3"),
+                          ]),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Username",
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
-                  ), //fontFamily: "Edu"
-                  Text(
-                    "Category/Genre text",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 13,
-                        color: Colors.grey.shade700),
-                  ),
-                  const Text.rich(TextSpan(children: [
-                    TextSpan(
-                        text:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt "),
-                    TextSpan(
-                        text: "#hashtag", style: TextStyle(color: Colors.blue))
-                  ])),
-                  Text(
-                    "Link goes here",
-                    style: TextStyle(
-                        color: Colors.blue.shade800,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      SizedBox(
-                        height: 45,
-                        width: 100,
-                        child: Stack(
-                          children: List.generate(3, (index) {
-                            return Positioned(
-                                right: 25.0 * index,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          color: Colors.white, width: 3),
-                                      borderRadius: BorderRadius.circular(50)),
-                                  child: CircleAvatar(
-                                    radius: 20,
-                                    backgroundImage: CachedNetworkImageProvider(
-                                        imagas[index]),
-                                  ),
-                                ));
-                          }),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      const SizedBox(
-                        width: 250,
-                        child: Text.rich(TextSpan(children: [
-                          TextSpan(text: "Followed by"),
-                          TextSpan(
-                              text: " username, username ",
-                              style: TextStyle(fontWeight: FontWeight.w700)),
-                          TextSpan(text: "and"),
-                          TextSpan(
-                              text: " 100 others",
-                              style: TextStyle(fontWeight: FontWeight.w700)),
-                        ])),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.maxFinite,
-                    child: Button(
-                      text: "Follow",
-                      textColor: Colors.white,
-                      color: Colors.blue,
-                    ),
-                  ),
-                  const SizedBox(height: 9),
-
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Button(
-                          color: Colors.grey.shade300,
-                          text: "Message",
-                          textColor: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(width: 6),
-                      Expanded(
-                        child: Button(
-                          color: Colors.grey.shade300,
-                          text: "Subscribe",
-                          textColor: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(width: 6),
-                      Expanded(
-                        child: Button(
-                          color: Colors.grey.shade300,
-                          text: "Contact",
-                          textColor: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(width: 6),
-
-                      Button(
-                        color: Colors.grey.shade300,
-                        icon: Icons.group_add_sharp,
-                        textColor: Colors.black,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
