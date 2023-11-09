@@ -22,6 +22,14 @@ export 'package:intagram_clone_ui/components/UserProfile/Followers.dart';
 export 'package:intagram_clone_ui/components/UserProfile/Actions.dart';
 export 'package:intagram_clone_ui/components/UserProfile/Favorites.dart';
 export 'package:intagram_clone_ui/stores/user_profile_controller.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Tabs/TabButton.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Tabs/Tabs.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Tabs/MenuImage.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Tabs/Menu.dart';
+
+
+
+
 
 
 
