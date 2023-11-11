@@ -16,6 +16,28 @@ export 'package:intagram_clone_ui/utils/Helpers.dart';
 export 'package:intagram_clone_ui/components/base/ProfileImage.dart';
 export 'package:intagram_clone_ui/components/home/Post.dart';
 export 'package:intagram_clone_ui/components/base/Button.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Header.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Info.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Followers.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Actions.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Favorites.dart';
+export 'package:intagram_clone_ui/stores/user_profile_controller.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Tabs/TabButton.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Tabs/Tabs.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Tabs/MenuImage.dart';
+export 'package:intagram_clone_ui/components/UserProfile/Tabs/Menu.dart';
+export 'package:get_storage/get_storage.dart';
+export 'package:intagram_clone_ui/utils/Themes.dart';
+export 'package:intagram_clone_ui/utils/ThemeServise.dart';
+
+
+
+
+
+
+
+
+
 
 
 

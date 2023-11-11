@@ -41,8 +41,6 @@ class _HomePageState extends State<HomePage> {
                 return Post(post: homeController.posts[index]);
               })
             ),
-
-
             
           ],
         ),
