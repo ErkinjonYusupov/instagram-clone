@@ -1,7 +1,9 @@
 
 import 'package:intagram_clone_ui/config/Imports.dart';
 
-void main() {
+
+void main() async{
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -13,10 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      darkTheme: Themes.dark,
+      theme: Themes.light,
+      themeMode: ThemeService().theme,
       home: const SafeArea(child: MainPage()),
     );
   }
